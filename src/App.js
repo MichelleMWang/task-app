@@ -9,7 +9,8 @@ class App extends React.Component {
     this.state = {
       task: {
         text: '', 
-        id: uniqid() 
+        id: uniqid(), 
+        number: 1  
       }, 
       tasks:[]
     }; 
@@ -17,14 +18,15 @@ class App extends React.Component {
   handleChange = (e) => { //when type in the input, sets state "tast" property to the value that is in the input 
     this.setState({task: {
       text: e.target.value, 
-      id: this.state.task.id 
+      id: this.state.task.id, 
+      number: this.state.task.number
     }}); 
   }
   onSubmitTask = (e) => { //when click submit, puts the value of "task" into the array "tasks" and clears the "task" value for the next task 
     e.preventDefault(); 
     this.setState({
       tasks: this.state.tasks.concat(this.state.task), 
-      task: {text: '', id: uniqid()}
+      task: {text: '', id: uniqid(), number: this.state.task.number + 1 }
     }); 
   }
   render(){

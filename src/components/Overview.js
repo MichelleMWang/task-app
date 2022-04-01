@@ -6,7 +6,7 @@ function Overview(props) {
         <div className='Overview'> 
             <div className="tasks">
                 {tasks.map((task) => {
-                    return <div key={task.id}>{task.text}</div>
+                    return <div key={task.id}>{task.number + ' ' + task.text}</div>
                 })}
             </div> 
         </div> 
