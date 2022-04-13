@@ -29,6 +29,11 @@ class App extends React.Component {
       task: {text: '', id: uniqid(), number: this.state.task.number + 1 }
     }); 
   }
+  deleteTask(e){
+    const index = this.state.task.number - 1; 
+    this.setState({tasks: this.state.tasks.splice(index, 1) 
+    }); 
+  }
   render(){
     const { task, tasks } = this.state; 
 
