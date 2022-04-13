@@ -10,7 +10,7 @@ class App extends React.Component {
       task: {
         text: '', 
         id: uniqid(), 
-        number: 1  
+        //number: 1  
       }, 
       tasks:[]
     }; 
@@ -19,18 +19,17 @@ class App extends React.Component {
     this.setState({task: {
       text: e.target.value, 
       id: this.state.task.id, 
-      number: this.state.task.number
     }}); 
   }
   onSubmitTask = (e) => { //when click submit, puts the value of "task" into the array "tasks" and clears the "task" value for the next task 
     e.preventDefault(); 
     this.setState({
       tasks: this.state.tasks.concat(this.state.task), 
-      task: {text: '', id: uniqid(), number: this.state.task.number + 1 }
+      task: {text: '', id: uniqid()}
     }); 
   }
   deleteTask(e){
-    const index = this.state.task.number - 1; 
+    const index = this.state.tasks.indexOf(this.state.task); 
     this.setState({tasks: this.state.tasks.splice(index, 1) 
     }); 
   }
